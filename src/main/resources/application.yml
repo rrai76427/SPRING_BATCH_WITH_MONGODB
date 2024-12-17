@@ -1,0 +1,36 @@
+server:
+  port: 8099
+
+spring:
+  kafka:
+    bootstrap-servers: 172.16.1.107:9092
+  application:
+    name: batch-v5
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      fail-on-empty-beans: false
+  #disabled job run at startup
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: never
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: testdb
+      username: root
+      password: example
+      uri: mongodb://root:example@127.0.0.1:27017/testdb?authSource=admin
+      auto-index-creation: false
+
+batch:
+   csv-path-directory: "G:\\SpringBatch5\\batch.csv"
+
+# Enable Logging mongo queries
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+
